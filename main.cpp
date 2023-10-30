@@ -14,7 +14,6 @@ public:
     void getStoc(){return stoc;};
 };
 
-
 class Client{
 private:
     string nume;
