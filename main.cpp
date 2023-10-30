@@ -9,9 +9,9 @@ private:
     int stoc;
 public:
     Produs(const string& n,double p,int s) : nume(n),pret(p),stoc(s){};
-    void getNume(){return this->nume;};
-    void getPret(){return this->pret;};
-    void getStoc(){return this->stoc;};
+    const string& getNume(){return this->nume;};
+    double getPret(){return this->pret;};
+    int getStoc(){return this->stoc;};
 };
 
 class Client{
@@ -20,8 +20,8 @@ private:
     string adresa;
 public:
     Client(const string& n,const string& a) : nume(n),adresa(a){};
-    void getNume(){return this->nume;};
-    void getAdresa(){return this->adresa;};
+    const string& getNume(){return this->nume;};
+    const string& getAdresa(){return this->adresa;};
 };
 
 
