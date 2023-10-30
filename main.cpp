@@ -1,61 +1,60 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
 #include <iostream>
-#include <chrono>
-#include <thread>
+using namespace std;
 
-#ifdef __linux__
-#include <X11/Xlib.h>
-#endif
 
-class SomeClass {
+class Produs {
+private:
+    string nume;
+    double pret;
+    int stoc;
 public:
-    explicit SomeClass(int) {}
+    Produs(const string& n,double p,int s) : nume(n),pret(p),stoc(s){};
+    void getNume(){return nume;};
+    void getPret(){return pret;};
+    void getStoc(){return stoc;};
 };
 
-SomeClass *getC() {
-    return new SomeClass{2};
-}
 
-int main() {
-    #ifdef __linux__
-    XInitThreads();
-    #endif
+class Client{
+private:
+    string nume;
+    string adresa;
+public:
+    Client(const string& n,const string& a) : nume(n),adresa(a){};
+    void getNume(){return nume;};
+    void getAdresa(){return adresa;};
+};
 
-    SomeClass *c = getC();
-    std::cout << c << "\n";
-    delete c;
 
-    sf::RenderWindow window;
-    // NOTE: sync with env variable APP_WINDOW from .github/workflows/cmake.yml:30
-    window.create(sf::VideoMode({800, 700}), "My Window", sf::Style::Default);
-    window.setVerticalSyncEnabled(true);
-    //window.setFramerateLimit(60);
+class InterfataUtilizator {
+public:
+    void afiseazaMeniu(){
+        cout << "Meniu:\n";
+        cout << "1. Vizualizare produse disponibile\n";
+        cout << "2. Adăugare produs în coș\n";
+        cout << "3. Vizualizare coș de cumpărături\n";
+        cout << "4. Efectuare comandă\n";
+        cout << "5. Ieșire\n";
+    };
+};
 
-    while(window.isOpen()) {
-        sf::Event e;
-        while(window.pollEvent(e)) {
-            switch(e.type) {
-            case sf::Event::Closed:
-                window.close();
-                break;
-            case sf::Event::Resized:
-                std::cout << "New width: " << window.getSize().x << '\n'
-                          << "New height: " << window.getSize().y << '\n';
-                break;
-            case sf::Event::KeyPressed:
-                std::cout << "Received key " << (e.key.code == sf::Keyboard::X ? "X" : "(other)") << "\n";
-                break;
-            default:
-                break;
-            }
-        }
-        using namespace std::chrono_literals;
-        std::this_thread::sleep_for(300ms);
 
-        window.clear();
-        window.display();
-    }
+ int main()
+ {
+     InterfataUtilizator Interfata;
+     int optiune;
+     while(true){
+         Interfata.afiseazaMeniu();
+         cout << "Alegeți o opțiune: ";
+         cin >> optiune;
 
-    return 0;
-}
+         if (optiune == 5) {
+             cout << "La revedere!\n";
+             break;
+         } else {
+             cout << "Opțiune neimplementată. Vă rugăm să alegeți din nou.\n";
+         }
+     }
+
+     return 0;
+ }
