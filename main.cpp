@@ -1,59 +1,59 @@
 #include <iostream>
-using namespace std;
+#include <string>
+#include <vector>
 
-
-class Produs {
+class Product {
 private:
-    string nume;
-    double pret;
-    int stoc;
+    std::string name;
+    double price;
+    int stock;
 public:
-    Produs(const string& n,double p,int s) : nume(n),pret(p),stoc(s){};
-    const string& getNume(){return this->nume;};
-    double getPret(){return this->pret;};
-    int getStoc(){return this->stoc;};
+    Product(const std::string& n, double p, int s) : name(n), price(p), stock(s) {};
+    const std::string& getName() { return this->name; }
+    double getPrice() { return this->price; }
+    int getStock() { return this->stock; }
 };
 
-class Client{
+class Customer {
 private:
-    string nume;
-    string adresa;
+    std::string name;
+    std::string address;
 public:
-    Client(const string& n,const string& a) : nume(n),adresa(a){};
-    const string& getNume(){return this->nume;};
-    const string& getAdresa(){return this->adresa;};
+    Customer(const std::string& n, const std::string& a) : name(n), address(a) {};
+    const std::string& getName() { return this->name; }
+    const std::string& getAddress() { return this->address; }
 };
 
-
-class InterfataUtilizator {
+class UserInterface {
 public:
-    void afiseazaMeniu(){
-        cout << "Meniu:\n";
-        cout << "1. Vizualizare produse disponibile\n";
-        cout << "2. Adăugare produs în coș\n";
-        cout << "3. Vizualizare coș de cumpărături\n";
-        cout << "4. Efectuare comandă\n";
-        cout << "5. Ieșire\n";
-    };
+    void displayMenu() {
+        std::cout << "Menu:\n";
+        std::cout << "1. View available products\n";
+        std::cout << "2. Add product to cart\n";
+        std::cout << "3. View shopping cart\n";
+        std::cout << "4. Place order\n";
+        std::cout << "5. Exit\n";
+    }
+
+    void execute() {
+        int option;
+        while (true) {
+            displayMenu();
+            std::cout << "Select an option: ";
+            std::cin >> option;
+
+            if (option == 5) {
+                std::cout << "Goodbye!\n";
+                break;
+            } else {
+                std::cout << "Unimplemented option. Please choose again.\n";
+            }
+        }
+    }
 };
 
-
- int main()
- {
-     InterfataUtilizator Interfata;
-     int optiune;
-     while(true){
-         Interfata.afiseazaMeniu();
-         cout << "Alegeți o opțiune: ";
-         cin >> optiune;
-
-         if (optiune == 5) {
-             cout << "La revedere!\n";
-             break;
-         } else {
-             cout << "Opțiune neimplementată. Vă rugăm să alegeți din nou.\n";
-         }
-     }
-
-     return 0;
- }
+int main() {
+    UserInterface interface;
+    interface.execute();
+    return 0;
+}
