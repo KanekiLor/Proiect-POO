@@ -194,6 +194,7 @@ int main() {
             std::cin>>option;
             i=option;
         }
+
         if(i == 1)
         {
             ai.run();
