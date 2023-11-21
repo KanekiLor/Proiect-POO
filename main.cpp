@@ -168,7 +168,6 @@ public:
             if(option == Place_Order)
             {
                 OnlineStore store;
-                store.placeOrder();
 
             }
             if (option == Exit) {
