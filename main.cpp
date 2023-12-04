@@ -218,7 +218,7 @@
                     else if (i == 2) {
                         interface = new UserInterface();
                     }
-                    else if (i!=1 || i!=2)
+                    else if (i==3)
                         return 0;
                 }
                 if (interface) {
