@@ -109,7 +109,18 @@ endif()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp
-        main.cpp)
+        main.cpp
+        ShoppingCart.h
+        Product.h
+        Product.cpp
+        ShoppingCart.cpp
+        OnlineStore.h
+        OnlineStore.cpp
+        Customer.h
+        Customer.cpp
+        Order.h
+        Order.cpp
+)
 
 ###############################################################################
 
