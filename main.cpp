@@ -52,7 +52,10 @@
                 if (option == Add_Customer) {
                     std::cout << "Enter the name and the address of the client\n";
                     std::string a, n;
-                    std::cin >> a >> n;
+                    std::cout << "Name";
+                    std::cin >> n;
+                    std::cout << "Address";
+                    std::cin >> a;
                     store.addCustomer(n, a);
                 }
                 if (option == Add_product) {
@@ -60,7 +63,12 @@
                     std::string n;
                     double p;
                     int s;
-                    std::cin >> n >> p >> s;
+                    std::cout<<" Name: ";
+                    std::cin >> n;
+                    std::cout << "Price: ";
+                    std::cin >> p;
+                    std::cout << "Stock: ";
+                    std::cin >> s;
                     store.addProduct(n, p, s);
                 }
                 if (option == Exit2) {
@@ -79,10 +87,9 @@
         void displayMenu() const override {
             std::cout << "Menu:\n";
             std::cout << "1. View available products\n";
-            std::cout << "2. Add a product to the cart\n";
-            std::cout << "3. View shopping cart\n";
-            std::cout << "4. Place an order\n";
-            std::cout << "5. Exit\n";
+            std::cout << "2. View shopping cart\n";
+            std::cout << "3. Place an order\n";
+            std::cout << "4. Exit\n";
         }
 
         void run() override {
@@ -211,6 +218,8 @@
                     else if (i == 2) {
                         interface = new UserInterface();
                     }
+                    else if (i!=1 || i!=2)
+                        return 0;
                 }
                 if (interface) {
                     interface->run();
