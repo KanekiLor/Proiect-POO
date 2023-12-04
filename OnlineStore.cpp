@@ -2,7 +2,12 @@
 #include <iostream>
 
 void OnlineStore::displayAvailableProducts() const {
-    // Implementation
+    std::cout << "Available Products:\n";
+    int i=0;
+    for (const Product& product : availableProducts) {
+        std::cout << ++i << "." << product.getName() << " - " << product.getPrice() << " RON " << product.getStock()
+                  << " pcs.\n";
+    }
 }
 
 int OnlineStore::getNumAvailableProducts() const {
@@ -10,17 +15,25 @@ int OnlineStore::getNumAvailableProducts() const {
 }
 
 Product* OnlineStore::getProductByNumber(int productNumber) {
-    // Implementation
+    if (productNumber > 0 && productNumber <= getNumAvailableProducts()) {
+        return &availableProducts[productNumber - 1];
+    }
+    else {
+        return nullptr;  // Return nullptr for invalid product numbers
+    }
 }
 
 Customer* OnlineStore::addCustomer(const std::string& name, const std::string& address) {
-    // Implementation
+    customers.emplace_back(name, address);
+    return &customers.back();
 }
 
 Product* OnlineStore::addProduct(const std::string& name, double price, int stock) {
-    // Implementation
+    availableProducts.emplace_back(name,price,stock);
+    return &availableProducts.back();
 }
 
 Order* OnlineStore::placeOrder(Customer* customer, ShoppingCart* cart) {
-    // Implementation
+    orders.emplace_back(customer, cart);
+    return &orders.back();
 }
