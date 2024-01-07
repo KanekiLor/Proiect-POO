@@ -9,7 +9,7 @@ public:
     void displayMenu() const override;
     void run() override;
     void specificFunction() const override;  // Suprascrieți metoda
-    void viewAvailableProducts(OnlineStore& store) const;
+    void viewAvailableProducts(const OnlineStore& store) const;
     void viewShoppingCart(const ShoppingCart& cart) const;
     void placeOrder(OnlineStore &store, ShoppingCart &cart);
 };

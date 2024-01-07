@@ -37,7 +37,7 @@ void UserInterface::run() {
         }
     }
 
-    void UserInterface::viewAvailableProducts(OnlineStore& store) const {
+    void UserInterface::viewAvailableProducts(const OnlineStore &store) const {
         std::cout << "Here are all the available products: \n";
         store.displayAvailableProducts();
     }
