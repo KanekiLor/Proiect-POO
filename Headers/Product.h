@@ -1,6 +1,3 @@
-//
-// Created by reas1 on 12/4/2023.
-//
 
 #ifndef OOP_PRODUCT_H
 #define OOP_PRODUCT_H
@@ -16,9 +13,9 @@ private:
 public:
     Product(const std::string& n, double p, int s);
 
-    std::string getName() const;
-    double getPrice() const;
-    int getStock() const;
+    [[nodiscard]] std::string getName() const;
+    [[nodiscard]] double getPrice() const;
+    [[nodiscard]] int getStock() const;
 };
 
 

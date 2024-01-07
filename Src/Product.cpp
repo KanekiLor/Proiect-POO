@@ -1,5 +1,5 @@
 
-#include "Product.h"
+#include "../Headers/Product.h"
 
 Product::Product(const std::string& n, double p, int s) : name(n), price(p), stock(s) {}
 

@@ -1,4 +1,4 @@
-#include "OnlineStore.h"
+#include "../Headers/OnlineStore.h"
 #include <iostream>
 
 void OnlineStore::displayAvailableProducts() const {
@@ -34,6 +34,7 @@ Product* OnlineStore::addProduct(const std::string& name, double price, int stoc
 }
 
 Order* OnlineStore::placeOrder(Customer* customer, ShoppingCart* cart) {
-    orders.emplace_back(customer, cart);
+    Order newOrder(customer, cart);
+    orders.push_back(newOrder);
     return &orders.back();
 }

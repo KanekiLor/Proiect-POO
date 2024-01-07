@@ -11,7 +11,7 @@ private:
 public:
     void addProduct(const Product& product);
     void displayCart() const;
-    const std::vector<Product>& getProducts() const;
+    [[nodiscard]] const std::vector<Product>& getProducts() const;
     void clear();
 };
 

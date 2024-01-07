@@ -19,7 +19,7 @@ private:
 
 public:
     void displayAvailableProducts() const;
-    int getNumAvailableProducts() const;
+    [[nodiscard]] int getNumAvailableProducts() const;
     Product* getProductByNumber(int productNumber);
     Customer* addCustomer(const std::string& name, const std::string& address);
     Product* addProduct(const std::string& name, double price, int stock);

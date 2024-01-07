@@ -110,16 +110,23 @@ endif()
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp
         main.cpp
-        ShoppingCart.h
-        Product.h
-        Product.cpp
-        ShoppingCart.cpp
-        OnlineStore.h
-        OnlineStore.cpp
-        Customer.h
-        Customer.cpp
-        Order.h
-        Order.cpp
+        Headers/ShoppingCart.h
+        Headers/Product.h
+        Src/Product.cpp
+        Src/ShoppingCart.cpp
+        Headers/OnlineStore.h
+        Src/OnlineStore.cpp
+        Headers/Customer.h
+        Src/Customer.cpp
+        Headers/Order.h
+        Src/Order.cpp
+        Src/AdminInterface.cpp
+        Headers/AdminInterface.h
+        Headers/Interface.h
+        Headers/UserInterface.h
+        Src/UserInterface.cpp
+        Src/Singleton.cpp
+        Headers/Singleton.h
 )
 
 ###############################################################################

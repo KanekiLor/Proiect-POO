@@ -1,4 +1,4 @@
-#include "Customer.h"
+#include "../Headers/Customer.h"
 
 Customer::Customer(const std::string& n, const std::string& a) : name(n), address(a) {}
 
